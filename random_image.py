@@ -47,9 +47,9 @@ def main():
     # For simplicity, the arguments are explicit numerical coordinates
     image = Image.new('1', (EPD_WIDTH, EPD_HEIGHT), 1)    # 1: clear the frame
     draw = ImageDraw.Draw(image)
-    image = Image.open(choose_random_loading_image('bmp/'))
+    image = Image.open('imag2.bmp')
     epd.display_frame(epd.get_frame_buffer(image))
-    time.sleep(60)  # change the image every minute 
+    time.sleep(60)  # change the image every minute
     main()
 
 
