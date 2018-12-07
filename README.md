@@ -1,2 +1,1 @@
-# cbi
-CBI course
+# E-Paper-PhotoSlideShow
