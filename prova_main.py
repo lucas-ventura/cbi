@@ -67,27 +67,20 @@ if __name__ == '__main__':
     print('Press button...')
 
 
-    imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
-    imageRed = Image.open('bmp/blank.bmp')
-    epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-    playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
-
-
     while True:
-        while x == 0:
-            print x
-            time.sleep(0.1)
-        if x == 1:
-            imageBlack = Image.open('bmp/' + chooseImage('1'))
-        elif x == 2:
-            imageBlack = Image.open('bmp/' + chooseImage('2'))
+        imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        try:
-            if x == 1:
-                playMusic('mp3/' + '1' + '.mp3')
-            elif x == 2:
-                playMusic('mp3/' + '2' + '.mp3')
+        playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
+        time.sleep(0.1)
+
+        if x==1 or x==2 or x==3 or x==4 or x==5 or x==6
+            imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
+            imageRed = Image.open('bmp/blank.bmp')
+            epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
+            playMusic('mp3/' + '1' + '.mp3') # Demo exercise audio
+            x=0
+
         except KeyboardInterrupt:
             # if user hits Ctrl/C then exit
             # (works only in console mode)
