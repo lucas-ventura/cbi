@@ -80,14 +80,5 @@ Pictures:
 - size: 640x384 px
 - format: .bmp
 
-Wires:
- COLOR      PORT      PIN      NUMBER     BCM
- ---------------------------------------------
-- RED        3.3V     3.3V      17
-- BLACK      GND      GND       25
-- BLUE       DIN      MOSI      19
-- YELLOW     CLK      SCKL      23
-- ORANGE     CS       CE0       24         8
-- GREEN      DC       GPIO25    22         25
-- BLUE       RST      GPIO17    11         17
-- PURPLE     BUSY     GPIO24    18         24
+Audios:
+- format: .mp3
