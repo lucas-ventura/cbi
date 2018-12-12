@@ -7,5 +7,5 @@ while True:
     sock.bind(("", UDP_PORT))
     data, addr = sock.recvfrom(1024)
     print "received message: ", data
-     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.sendto((raw_input('Message: ')).encode(), (UDP_IP, UDP_PORT))
