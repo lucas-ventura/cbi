@@ -94,6 +94,8 @@ if __name__ == '__main__':
         elif x==27:
             resposta = "37"
 
+        print(resposta)
+
         ## ENVIAR QUINA RESPOSTA
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto(resposta, (UDP_IP, UDP_PORT))
@@ -103,5 +105,11 @@ if __name__ == '__main__':
 
         data, addr = socket.recvfrom(1024)
         print "Resposta de l'altre: ", data
+
+        ## CORRECT ANSWER
+        both = resposta + data
+        imageBlack = Image.open('bmp/' + chooseImage('both')) # Demo exercise
+        imageRed = Image.open('bmp/blank.bmp')
+        epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
 
     print 'End'

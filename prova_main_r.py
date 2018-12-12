@@ -15,7 +15,7 @@ import socket
 def buttonCallback(channel):
     global x
     x=channel
-    print channel
+    #print channel
 
 def chooseImage(picFile):
     if picFile == '1':
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     GPIO.add_event_detect(22,GPIO.RISING,callback = buttonCallback)
     GPIO.add_event_detect(23,GPIO.RISING,callback = buttonCallback)
     GPIO.add_event_detect(27,GPIO.RISING,callback = buttonCallback)
-    x = 0;
+    x = 0
     freq = 44100    # audio CD quality
     bitsize = -16   # unsigned 16 bit
     channels = 2    # 1 is mono, 2 is stereo
@@ -69,11 +69,12 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
+        #playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
         time.sleep(0.1)
 
         while x==0:
             print(x)
+
 
         # DEMO EXERCISE
         x=0
@@ -81,10 +82,20 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '2' + '.mp3') # Demo exercise audio
+        #playMusic('mp3/' + '2' + '.mp3') # Demo exercise audio
 
+        resposta = "0"
+        if x==22:
+            resposta = "44"
+        elif x==23:
+            resposta = "15"
+        elif x==12:
+            resposta = "22"
+        elif x==27:
+            resposta = "37"
 
-
+        print(resposta)
+    
         ## ENVIAR QUINA RESPOSTA
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind(("", UDP_PORT))
@@ -93,5 +104,11 @@ if __name__ == '__main__':
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto((raw_input('Message: ')).encode(), (UDP_IP, UDP_PORT))
+
+        ## CORRECT ANSWER
+        both = resposta + data
+        imageBlack = Image.open('bmp/' + chooseImage('both')) # Demo exercise
+        imageRed = Image.open('bmp/blank.bmp')
+        epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
 
     print 'End'
