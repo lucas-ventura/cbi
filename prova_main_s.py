@@ -68,7 +68,7 @@ if __name__ == '__main__':
         # 1 LEAF LOGO
         imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
         imageRed = Image.open('bmp/blank.bmp')
-        #epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
+        epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
         #playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
         time.sleep(0.1)
 
