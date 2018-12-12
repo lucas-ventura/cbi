@@ -1,7 +1,8 @@
 import socket
 UDP_IP = "128.141.118.251"
 UDP_PORT = 5005
- while True:
+
+while True:
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(("", UDP_PORT))
     data, addr = sock.recvfrom(1024)
