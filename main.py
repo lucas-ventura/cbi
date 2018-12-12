@@ -80,6 +80,7 @@ if __name__ == '__main__':
                 playMusic('mp3/' + '1' + '.mp3')
             elif x == 2:
                 playMusic('mp3/' + '2' + '.mp3')
+
         except KeyboardInterrupt:
             # if user hits Ctrl/C then exit
             # (works only in console mode)

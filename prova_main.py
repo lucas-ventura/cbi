@@ -80,12 +80,5 @@ if __name__ == '__main__':
             epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
             playMusic('mp3/' + '1' + '.mp3') # Demo exercise audio
             x=0
-
-        except KeyboardInterrupt:
-            # if user hits Ctrl/C then exit
-            # (works only in console mode)
-            pg.mixer.music.fadeout(1000)
-            pg.mixer.music.stop()
-            raise SystemExit
-            x = 0
+            
     print 'End'
