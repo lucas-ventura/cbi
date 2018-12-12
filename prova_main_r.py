@@ -105,7 +105,7 @@ if __name__ == '__main__':
         print "received message: ", data
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto((raw_input('Message: ')).encode(), (UDP_IP, UDP_PORT))
+        sock.sendto(resposta, (UDP_IP, UDP_PORT))
 
         ## CORRECT ANSWER
         both = resposta + data
