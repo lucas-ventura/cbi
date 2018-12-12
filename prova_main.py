@@ -21,9 +21,9 @@ def buttonCallback(channel):
     print channel
 
 def chooseImage(picFile):
-    if picFile == '1'
+    if picFile == '1':
         image = '1.bmp'
-    elif picFile == '2'
+    elif picFile == '2':
         image = '2.bmp'
     return image
 
