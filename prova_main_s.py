@@ -15,7 +15,7 @@ import socket
 def buttonCallback(channel):
     global x
     x=channel
-    print channel
+    #print channel
 
 def chooseImage(picFile):
     if picFile == '1':
