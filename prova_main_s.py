@@ -72,7 +72,7 @@ if __name__ == '__main__':
         #playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
         time.sleep(0.1)
 
-        while x==0:
+        while x!=12 or x!=16 or x!=20 or x!=22 or x!=23 or x!=27:
             print(x)
 
         # DEMO EXERCISE
@@ -83,11 +83,19 @@ if __name__ == '__main__':
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
         #playMusic('mp3/' + '2' + '.mp3') # Demo exercise audio
 
-
+        resposta = "0"
+        if x==22:
+            resposta = "44"
+        elif x==23:
+            resposta = "15"
+        elif x==12:
+            resposta = "22"
+        elif x==27:
+            resposta = "37"
 
         ## ENVIAR QUINA RESPOSTA
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto((raw_input('Message: ')).encode(), (UDP_IP, UDP_PORT))
+        sock.sendto(resposta, (UDP_IP, UDP_PORT))
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind("", UDP_PORT)
