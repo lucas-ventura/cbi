@@ -72,7 +72,7 @@ if __name__ == '__main__':
         #playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
         time.sleep(0.1)
 
-        while x!=12 or x!=16 or x!=20 or x!=22 or x!=23 or x!=27:
+        while x==0:
             print(x)
 
 
