@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 
         # DEMO EXERCISE
-        x=0
+        #x=0
 
         imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
