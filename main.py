@@ -21,8 +21,10 @@ def buttonCallback(channel):
     print channel
 
 def chooseImage(picFile):
-    if picFile == '1': image = '1.bmp'
-    else: image = '2.bmp'
+    if picFile == '1'
+        image = '1.bmp'
+    elif picFile == '2'
+        image = '2.bmp'
     return image
 
 def playMusic(musicFile):
@@ -39,18 +41,25 @@ def playMusic(musicFile):
 
 if __name__ == '__main__':
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
-    GPIO.setup(20, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+    GPIO.setup(12, GPIO.IN, pull_up_down = GPIO.PUD_DOWN) #button_right
+    GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_DOWN) #button_B
+    GPIO.setup(20, GPIO.IN, pull_up_down = GPIO.PUD_DOWN) #button_A
+    GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_DOWN) #button_left
+    GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_DOWN) #button_down
+    GPIO.setup(27, GPIO.IN, pull_up_down = GPIO.PUD_DOWN) #button_up
+    GPIO.add_event_detect(12,GPIO.RISING,callback = buttonCallback)
     GPIO.add_event_detect(16,GPIO.RISING,callback = buttonCallback)
     GPIO.add_event_detect(20,GPIO.RISING,callback = buttonCallback)
+    GPIO.add_event_detect(22,GPIO.RISING,callback = buttonCallback)
+    GPIO.add_event_detect(23,GPIO.RISING,callback = buttonCallback)
+    GPIO.add_event_detect(27,GPIO.RISING,callback = buttonCallback)
     x = 0;
     freq = 44100    # audio CD quality
     bitsize = -16   # unsigned 16 bit
     channels = 2    # 1 is mono, 2 is stereo
     buffer = 2048   # number of samples (experiment to get right sound)
     pg.mixer.init(freq, bitsize, channels, buffer)
-    # optional volume 0 to 1.0
-    pg.mixer.music.set_volume(1.0)
+    pg.mixer.music.set_volume(1.0) # optional volume 0 to 1.0
     epd = epd7in5b.EPD()
     epd.init()
     #print("Clear...")
