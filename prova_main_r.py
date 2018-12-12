@@ -1,4 +1,4 @@
-UDP_IP = "128.141.118.85" #IP de l'altre
+UDP_IP = "128.141.118.251" #IP de l'altre
 
 UDP_PORT = 5005
 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
             resposta = "37"
 
         print(resposta)
-    
+
         ## ENVIAR QUINA RESPOSTA
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind(("", UDP_PORT))
