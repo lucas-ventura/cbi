@@ -50,7 +50,7 @@ if __name__ == '__main__':
     GPIO.add_event_detect(22,GPIO.RISING,callback = buttonCallback)
     GPIO.add_event_detect(23,GPIO.RISING,callback = buttonCallback)
     GPIO.add_event_detect(27,GPIO.RISING,callback = buttonCallback)
-    x = 0;
+    x = 0
     freq = 44100    # audio CD quality
     bitsize = -16   # unsigned 16 bit
     channels = 2    # 1 is mono, 2 is stereo
@@ -75,8 +75,9 @@ if __name__ == '__main__':
         while x!=12 or x!=16 or x!=20 or x!=22 or x!=23 or x!=27:
             print(x)
 
+
         # DEMO EXERCISE
-        #x=0
+        x=0
 
         imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
