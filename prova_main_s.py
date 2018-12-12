@@ -102,12 +102,10 @@ if __name__ == '__main__':
         ## ENVIAR QUINA RESPOSTA
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto(resposta, (UDP_IP, UDP_PORT))
-
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind(("", UDP_PORT))
-
-        data, addr = socket.recvfrom(1024)
-        print "Resposta de l'altre: ", data
+        data, addr = sock.recvfrom(1024)
+        print "received message: ", data
 
         ## CORRECT ANSWER
         both = resposta + data
