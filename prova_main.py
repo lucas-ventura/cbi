@@ -1,7 +1,6 @@
-##
- #  @filename   :   main.py
- #  @author     :   Xavier Cantos Roman
- ##
+UDP_IP = "128.141.118.85" #IP de l'altre
+
+UDP_PORT = 5005
 
 # import libraries
 import sys
@@ -11,13 +10,11 @@ import time
 import epd7in5b
 from PIL import Image,ImageDraw,ImageFont
 import RPi.GPIO as GPIO
+import socket
 
 def buttonCallback(channel):
     global x
-    if channel == 16:
-        x = 1
-    elif channel == 20:
-        x = 2
+    x=channel
     print channel
 
 def chooseImage(picFile):
@@ -68,17 +65,34 @@ if __name__ == '__main__':
 
 
     while True:
+        # 1 LEAF LOGO
         imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
         playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
         time.sleep(0.1)
 
-        if x==1 or x==2 or x==3 or x==4 or x==5 or x==6:
-            imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
-            imageRed = Image.open('bmp/blank.bmp')
-            epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-            playMusic('mp3/' + '1' + '.mp3') # Demo exercise audio
-            x=0
-            
+        while x==0:
+            print(x)
+
+        # DEMO EXERCISE
+        x=0
+
+        imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
+        imageRed = Image.open('bmp/blank.bmp')
+        epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
+        playMusic('mp3/' + '2' + '.mp3') # Demo exercise audio
+
+
+
+        ## ENVIAR QUINA RESPOSTA
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.sendto((raw_input('Message: ')).encode(), (UDP_IP, UDP_PORT))
+
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.bind("", UDP_PORT)
+
+        data, addr = socket.recvfrom(1024)
+        print "Resposta de l'altre: ", data
+
     print 'End'
