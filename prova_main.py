@@ -74,7 +74,7 @@ if __name__ == '__main__':
         playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
         time.sleep(0.1)
 
-        if x==1 or x==2 or x==3 or x==4 or x==5 or x==6
+        if x==1 or x==2 or x==3 or x==4 or x==5 or x==6:
             imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
             imageRed = Image.open('bmp/blank.bmp')
             epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
