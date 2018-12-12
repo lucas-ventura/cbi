@@ -73,7 +73,7 @@ if __name__ == '__main__':
         time.sleep(0.1)
 
         print("Ready")
-        
+
         while x==0:
             print(x)
 
@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
         ## CORRECT ANSWER
         both = resposta + data
-        imageBlack = Image.open('bmp/' + chooseImage('both')) # Demo exercise
+        imageBlack = Image.open('bmp/' + chooseImage(both)) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
 
