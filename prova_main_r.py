@@ -109,7 +109,8 @@ if __name__ == '__main__':
 
         ## CORRECT ANSWER
         both = resposta + data
-        imageBlack = Image.open('bmp/' + chooseImage('both')) # Demo exercise
+        imageBlack = Image.open('bmp/' + chooseImage(both)) # Demo exercise
+        print(both)
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
 
