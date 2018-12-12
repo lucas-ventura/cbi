@@ -99,7 +99,7 @@ if __name__ == '__main__':
         sock.sendto(resposta, (UDP_IP, UDP_PORT))
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.bind("", UDP_PORT)
+        sock.bind(("", UDP_PORT))
 
         data, addr = socket.recvfrom(1024)
         print "Resposta de l'altre: ", data
