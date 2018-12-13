@@ -68,16 +68,6 @@ if __name__ == '__main__':
 
 
     while True:
-        # 1 LEAF LOGO
-        imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
-        imageRed = Image.open('bmp/blank.bmp')
-        epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '1' + '.wav') #First audio LEAF
-        time.sleep(0.1)
-
-        while x==0:
-            print(x)
-
 
         # DEMO EXERCISE
         x=0
@@ -85,42 +75,10 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '2' + '.wav') # Demo exercise audio
+        #playMusic('mp3/' + '2' + '.wav') # Demo exercise audio
 
-        x=0
-        while x==0:
-            print(x)
 
-        if x==22:
-            resposta = "44"
-        elif x==23:
-            resposta = "15"
-        elif x==12:
-            resposta = "22"
-        elif x==27:
-            resposta = "37"
 
-        print(resposta)
 
-        ## ENVIAR QUINA RESPOSTA
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.bind(("", UDP_PORT))
-        data, addr = sock.recvfrom(1024)
-        print "received message: ", data
-
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto(resposta, (UDP_IP, UDP_PORT))
-
-        ## CORRECT ANSWER
-        both = resposta + data
-        print(both)
-        imageBlack = Image.open('bmp/' + both + '.bmp') # Demo exercise
-        imageRed = Image.open('bmp/blank.bmp')
-        epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '3' + '.wav')
-
-        x=0
-        while x==0:
-            print(x)
 
     print 'End'
