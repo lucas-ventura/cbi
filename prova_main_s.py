@@ -92,7 +92,7 @@ if __name__ == '__main__':
         elif x==27:
             resposta = "37"
 
-        data=44
+        data="44"
 
         ## CORRECT ANSWER
         both = resposta + data
