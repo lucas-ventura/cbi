@@ -1,3 +1,5 @@
+# SEND black "128.141.118.24"
+
 UDP_IP = "128.141.118.75" #IP de l'altre
 
 UDP_PORT = 5005
@@ -100,6 +102,7 @@ if __name__ == '__main__':
         elif x==27:
             resposta = "37"
 
+        x=0
         print(resposta)
 
         ## ENVIAR QUINA RESPOSTA
