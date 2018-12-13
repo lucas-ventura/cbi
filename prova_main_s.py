@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
         print(resposta)
 
-        ## ENVIAR QUINA RESPOSTA
+        ## ENVIAR QUINA RESPOSTA a
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto(resposta, (UDP_IP, UDP_PORT))
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
