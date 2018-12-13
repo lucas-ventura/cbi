@@ -1,6 +1,6 @@
 # SEND black "128.141.118.24"
 
-UDP_IP = "128.141.118.75" #IP de l'altre
+UDP_IP = "128.141.118.128" #IP de l'altre
 
 UDP_PORT = 5005
 
