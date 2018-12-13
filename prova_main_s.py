@@ -66,10 +66,10 @@ if __name__ == '__main__':
 
     while True:
         # 1 LEAF LOGO
+        playMusic('mp3/' + '1' + '.wav') #First audio LEAF
         imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '1' + '.wav') #First audio LEAF
         time.sleep(0.1)
 
         print("Ready")
@@ -82,10 +82,11 @@ if __name__ == '__main__':
         x=0
 
         print("Posar problema")
+        playMusic('mp3/' + '2' + '.wav') # Demo exercise audio
         imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '2' + '.wav') # Demo exercise audio
+
 
         while x==0:
             print(x)
@@ -110,11 +111,12 @@ if __name__ == '__main__':
         print "received message: ", data
 
         ## CORRECT ANSWER
+        playMusic('mp3/' + '3' + '.wav')
         both = resposta + data
         print(both)
         imageBlack = Image.open('bmp/' + both + '.bmp') # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '3' + '.wav')
+
 
     print 'End'
