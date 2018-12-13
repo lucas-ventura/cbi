@@ -113,6 +113,6 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + both + '.bmp') # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        playMusic('mp3/' + '3' + '.wav')
+        #playMusic('mp3/' + '3' + '.wav')
 
     print 'End'
