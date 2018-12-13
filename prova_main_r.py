@@ -84,6 +84,7 @@ if __name__ == '__main__':
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
         playMusic('mp3/' + '2' + '.wav') # Demo exercise audio
 
+        x=0
         while x==0:
             print(x)
 
