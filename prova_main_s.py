@@ -69,7 +69,7 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + chooseImage('1')) #First image LEAF
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        #playMusic('mp3/' + '1' + '.mp3') #First audio LEAF
+        playMusic('mp3/' + '1' + '.wav') #First audio LEAF
         time.sleep(0.1)
 
         print("Ready")
@@ -85,7 +85,7 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + chooseImage('2')) # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
-        #playMusic('mp3/' + '2' + '.mp3') # Demo exercise audio
+        playMusic('mp3/' + '2' + '.wav') # Demo exercise audio
 
         while x==0:
             print(x)
@@ -115,5 +115,6 @@ if __name__ == '__main__':
         imageBlack = Image.open('bmp/' + both + '.bmp') # Demo exercise
         imageRed = Image.open('bmp/blank.bmp')
         epd.display(epd.getbuffer(imageBlack),epd.getbuffer(imageRed))
+        playMusic('mp3/' + '3' + '.wav')
 
     print 'End'
